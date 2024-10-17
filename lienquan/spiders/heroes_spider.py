@@ -39,7 +39,9 @@ class HeroesSpider(scrapy.Spider):
 
         # Extract skin items
         skins = response.css(
-            "ul.hero__skins--list li a img::attr(src)").getall()
+            """section.hero__skins \
+                div.hero__skins--detail picture img::attr(src)"""
+        ).getall()
 
         # Create a dictionary to hold the hero and skin data
         yield {
