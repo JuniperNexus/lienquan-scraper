@@ -7,6 +7,6 @@ import scrapy
 
 
 class LienquanItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    image_url = scrapy.Field()
+    skins = scrapy.Field()  # Add skins field for scraping skins

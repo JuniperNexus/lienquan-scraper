@@ -17,12 +17,7 @@ class LienquanSpiderMiddleware:
         return None
 
     def process_spider_output(self, response, result, spider):
-        # Called with the results returned from the Spider, after
-        # it has processed the response.
-
-        # Must return an iterable of Request, or item objects.
-        for i in result:
-            yield i
+        return (i for i in result)
 
     def process_spider_exception(self, response, exception, spider):
         # Called when a spider or process_spider_input() method
@@ -32,13 +27,7 @@ class LienquanSpiderMiddleware:
         pass
 
     def process_start_requests(self, start_requests, spider):
-        # Called with the start requests of the spider, and works
-        # similarly to the process_spider_output() method, except
-        # that it doesn’t have a response associated.
-
-        # Must return only requests (not items).
-        for r in start_requests:
-            yield r
+        return (r for r in start_requests)
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
