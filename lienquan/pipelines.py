@@ -90,6 +90,11 @@ class SQLitePipeline:
         # Complete image file path
         file_path = folder_path / image_name
 
+        # Skip download if the file already exists
+        if file_path.exists():
+            print(f"Image already exists, skipping: {file_path}")
+            return
+
         # Download the image and save it
         try:
             response = requests.get(url, stream=True)
